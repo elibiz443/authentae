@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: elly
+  password: immortal
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: authentae_development
+
+test:
+  <<: *default
+  database: authentae_test
+
+production:
+  <<: *default
+  database: authentae_production
+  username: authentae
+  password: <%= ENV['AUTHENTAE_DATABASE_PASSWORD'] %>
