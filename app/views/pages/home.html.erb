@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome To Authentae</h1>
+<h2>This is an authentication app</h2>
+<h3><i>Hope you will like it</i></h3>
+
+<% if current_user %>
+	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+	<%= link_to "Sign Up", new_user_registration_path %>
+	<%= link_to "Sign In", new_user_session_path %>
+<% end %>
